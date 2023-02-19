@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddProductMenuController">
+   <children>
+      <HBox prefHeight="600.0" prefWidth="800.0" spacing="60.0">
+         <children>
+            <GridPane hgap="10.0" maxHeight="300.0" prefHeight="300.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="47.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="111.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="59.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="10.0" prefWidth="183.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label layoutX="10.0" layoutY="32.0" text="ID" />
+                  <Label text="Name" GridPane.rowIndex="1" />
+                  <Label layoutX="10.0" layoutY="32.0" text="Inv" GridPane.rowIndex="2" />
+                  <Label layoutX="10.0" layoutY="32.0" text="Price" GridPane.rowIndex="3" />
+                  <Label text="Max" GridPane.rowIndex="4" />
+                  <TextField fx:id="addProductIdTxt" disable="true" promptText="Auto Gen - Disabled" GridPane.columnIndex="1" />
+                  <TextField fx:id="addProductNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="addProductInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="addProductPriceTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="addProductMaxTxt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Min" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextField fx:id="addProductMinTxt" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </GridPane>
+            <VBox prefWidth="403.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="addProductPartSearch" onAction="#addProductSearch" promptText="Search by Part ID or Name..." />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="addProductAllPartsTable" prefHeight="200.0" prefWidth="300.0">
+                    <columns>
+                      <TableColumn fx:id="allPartsPartIdCol" prefWidth="75.0" text="Part ID" />
+                      <TableColumn fx:id="allPartsPartNameCol" prefWidth="85.0" text="Part Name" />
+                        <TableColumn fx:id="allPartsInvLvlCol" prefWidth="115.0" text="Inventory Level" />
+                        <TableColumn fx:id="allPartsPriceCostPerUnitCol" prefWidth="125.0" text="Price/ Cost per Unit" />
+                    </columns>
+                  </TableView>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <GridPane maxHeight="50.0" prefHeight="33.0" prefWidth="360.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="addPartButton" mnemonicParsing="false" onAction="#onActionAddPartToProduct" prefHeight="25.0" prefWidth="44.0" text="Add" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="addProductAssocPartsTable" prefHeight="200.0" prefWidth="300.0">
+                    <columns>
+                      <TableColumn fx:id="assocPartsPartIdCol" prefWidth="75.0" text="Part ID" />
+                      <TableColumn fx:id="assocPartsPartNameCol" prefWidth="85.0" text="Part Name" />
+                        <TableColumn fx:id="assocPartsInvLvlCol" prefWidth="115.0" text="Inventory Level" />
+                        <TableColumn fx:id="assocPartsPriceCostPerUnitCol" prefWidth="125.0" text="Price/ Cost per Unit" />
+                    </columns>
+                  </TableView>
+                  <HBox prefHeight="79.0" prefWidth="400.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0">
+                           <children>
+                              <GridPane prefHeight="25.0" prefWidth="409.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="removeAssocPartButton" mnemonicParsing="false" onAction="#onActionRemovePartFromProduct" prefHeight="25.0" prefWidth="144.0" text="Remove Associated Part" GridPane.halignment="CENTER" />
+                                 </children>
+                              </GridPane>
+                              <GridPane alignment="CENTER" maxWidth="180.0" prefHeight="30.0" prefWidth="186.0">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#onActionCancel" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                    <Button mnemonicParsing="false" onAction="#onActionSaveProduct" text="Save" GridPane.halignment="CENTER" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets top="50.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>
